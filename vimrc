@@ -776,4 +776,4 @@ augroup END
 autocmd BufNewFile,BufReadPost *.mq[h4] setlocal filetype=mql4
 
 " TODOグレップ
-map to :vim TODO */**<CR>
+
