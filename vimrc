@@ -4,124 +4,62 @@
 " ■関数一覧表示のctags
 " ■環境変数PATHに通して再起動すること
 " ■下記フォルダを作成すること
-" ~/.vim/undo
-" ~/.vim/swap
+" ・D:/workspace/vim/undo
+" ・D:/workspace/vim/swap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if has("win32")
-    if has("vim_starting")
-        set nocompatible
-        set runtimepath+=~/.vim/bundle/neobundle.vim
-        set runtimepath+=~/.vim/bundle/*
-    endif
-
-    call neobundle#begin(expand('~/.vim/bundle/'))
-    NeoBundleFetch 'Shougo/neobundle.vim'
-    " NeoBundle 'vobornik/vim-mql4'
-    NeoBundle 'Lokaltog/vim-easymotion'
-    NeoBundle 'Shougo/neocomplete.vim' 
-    NeoBundle 'tomtom/tcomment_vim'
-    NeoBundle 'Shougo/unite.vim'
-    NeoBundle 'Shougo/vimshell.vim'
-    NeoBundle 'Shougo/vimfiler.vim'
-    NeoBundle 'itchyny/lightline.vim'
-    NeoBundle 't9md/vim-textmanip'
-    NeoBundle 'AndrewRadev/switch.vim'
-    NeoBundle 'Shougo/unite.vim'
-    NeoBundle 'ujihisa/unite-colorscheme'
-    NeoBundle 'tomasr/molokai'
-    NeoBundle 'scrooloose/nerdtree'  
-    NeoBundle 'Shougo/neocomplcache.vim'
-    NeoBundle 'thinca/vim-quickrun'
-    NeoBundle "h1mesuke/unite-outline"
-    NeoBundle 'nathanaelkane/vim-indent-guides'
-    NeoBundle 'tyru/current-func-info.vim'
-    NeoBundle 'mattn/multi-vim'
-    NeoBundle 'terryma/vim-multiple-cursors'
-    NeoBundle 'tyru/restart.vim'
-    NeoBundle 'mbbill/undotree'
-    NeoBundle 'YankRing.vim'
-    NeoBundle 'troydm/easybuffer.vim'
-    NeoBundle 't9md/vim-quickhl'
-    NeoBundle "Shougo/neosnippet.vim"
-    NeoBundle "osyo-manga/vim-marching"
-    NeoBundle "Shougo/neosnippet-snippets"
-    NeoBundle "honza/vim-snippets"
-    NeoBundle "rhysd/wandbox-vim"
-    NeoBundle 'mattn/webapi-vim'                                
-    NeoBundle 'mattn/excitetranslate-vim'
-    NeoBundle 'vim-scripts/LanguageTool'
-    NeoBundle 'drillbits/nyan-modoki.vim'
-    NeoBundle 'majutsushi/tagbar'
-    NeoBundle 'itchyny/thumbnail.vim'
-    NeoBundle 'koron/codic-vim'
-    NeoBundle 'yuratomo/dotnet-complete'
-    NeoBundle 'ujihisa/neco-look'
-    NeoBundle 'tpope/vim-dispatch'
-    NeoBundle 'osyo-manga/vim-anzu'
-    " NeoBundle 'tpope/vim-fugitive'
-    call neobundle#end()
-
-    " Installation check.
-    NeoBundleCheck
-    set runtimepath+=$VIM/plugins/quickrun
-    set runtimepath+=$VIM/plugins/vimshell
-    set runtimepath+=$VIM/plugins/vimproc
-
-elseif has("unix")
-    if &compatible
-        set nocompatible
-    endif
-    set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-    call dein#begin(expand('~/.vim/dein'))
-
-    call dein#add('Shougo/dein.vim')
-    call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
-    call dein#add('Shougo/neocomplete.vim')
-    call dein#add('Shougo/neomru.vim')
-    call dein#add('Shougo/neosnippet')
-
-
-    call neobundle#begin(expand('~/.vim/bundle/'))
-    call dein#add('Shougo/neobundle.vim')
-    call dein#add('Lokaltog/vim-easymotion')
-    call dein#add('Shougo/neocomplete.vim' )
-    call dein#add('tomtom/tcomment_vim')
-    call dein#add('Shougo/unite.vim')
-    call dein#add('Shougo/vimshell.vim')
-    call dein#add('Shougo/vimfiler.vim')
-    call dein#add('itchyny/lightline.vim')
-    call dein#add('t9md/vim-textmanip')
-    call dein#add('AndrewRadev/switch.vim')
-    call dein#add('Shougo/unite.vim')
-    call dein#add('ujihisa/unite-colorscheme')
-    call dein#add('tomasr/molokai')
-    call dein#add('scrooloose/nerdtree'  )
-    call dein#add('Shougo/neocomplcache.vim')
-    call dein#add('thinca/vim-quickrun')
-    call dein#add('nathanaelkane/vim-indent-guides')
-    call dein#add('tyru/current-func-info.vim')
-    call dein#add('mattn/multi-vim')
-    call dein#add('terryma/vim-multiple-cursors')
-    call dein#add('tyru/restart.vim')
-    call dein#add('mbbill/undotree')
-    call dein#add('leafcage/yankround.vim')
-    call dein#add('troydm/easybuffer.vim')
-    call dein#add('t9md/vim-quickhl')
-    call dein#add('mattn/webapi-vim')
-    call dein#add('mattn/excitetranslate-vim')
-    call dein#add('vim-scripts/YankRing.vim')
-    call dein#add('drillbits/nyan-modoki.vim')
-    call dein#add('majutsushi/tagbar')
-    call dein#add('itchyny/thumbnail.vim')
-    call dein#add('koron/codic-vim')
-    call dein#add('yuratomo/dotnet-complete')
-    call dein#add('ujihisa/neco-look')
-    call dein#add('tpope/vim-dispatch')
-    call dein#add('osyo-manga/vim-anzu')
-    call dein#end()
+if &compatible
+  set nocompatible
 endif
+set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+call dein#begin(expand('~/.vim/dein'))
+
+call dein#add('Shougo/dein.vim')
+call dein#add('Shougo/vimproc.vim', {'build': 'make'})
+
+call dein#add('Shougo/neocomplete.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/neosnippet')
+
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+call dein#add('Shougo/neobundle.vim')
+call dein#add('Lokaltog/vim-easymotion')
+call dein#add('Shougo/neocomplete.vim' )
+call dein#add('tomtom/tcomment_vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/vimshell.vim')
+call dein#add('Shougo/vimfiler.vim')
+call dein#add('itchyny/lightline.vim')
+call dein#add('t9md/vim-textmanip')
+call dein#add('AndrewRadev/switch.vim')
+call dein#add('Shougo/unite.vim')
+call dein#add('ujihisa/unite-colorscheme')
+call dein#add('tomasr/molokai')
+call dein#add('scrooloose/nerdtree'  )
+call dein#add('Shougo/neocomplcache.vim')
+call dein#add('thinca/vim-quickrun')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('tyru/current-func-info.vim')
+call dein#add('mattn/multi-vim')
+call dein#add('terryma/vim-multiple-cursors')
+call dein#add('tyru/restart.vim')
+call dein#add('mbbill/undotree')
+call dein#add('leafcage/yankround.vim')
+call dein#add('troydm/easybuffer.vim')
+call dein#add('t9md/vim-quickhl')
+call dein#add('mattn/webapi-vim')
+call dein#add('mattn/excitetranslate-vim')
+call dein#add('vim-scripts/YankRing.vim')
+call dein#add('drillbits/nyan-modoki.vim')
+call dein#add('majutsushi/tagbar')
+call dein#add('itchyny/thumbnail.vim')
+call dein#add('koron/codic-vim')
+call dein#add('yuratomo/dotnet-complete')
+call dein#add('ujihisa/neco-look')
+call dein#add('tpope/vim-dispatch')
+call dein#add('osyo-manga/vim-anzu')
+call dein#end()
 
 " undotree.vim
 " [?]でヘルプ。,uでundo履歴
