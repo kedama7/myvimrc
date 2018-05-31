@@ -7,60 +7,67 @@
 " ・D:/workspace/vim/undo
 " ・D:/workspace/vim/swap
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-if &compatible
+if has("vim_starting")
   set nocompatible
+  set runtimepath+=~/.vim/bundle/neobundle.vim
+  set runtimepath+=~/.vim/bundle/*
 endif
-set runtimepath+=~/.vim/dein/repos/github.com/Shougo/dein.vim
-
-call dein#begin(expand('~/.vim/dein'))
-
-call dein#add('Shougo/dein.vim')
-call dein#add('Shougo/vimproc.vim', {'build': 'make'})
-
-call dein#add('Shougo/neocomplete.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/neosnippet')
-
 
 call neobundle#begin(expand('~/.vim/bundle/'))
-call dein#add('Shougo/neobundle.vim')
-call dein#add('Lokaltog/vim-easymotion')
-call dein#add('Shougo/neocomplete.vim' )
-call dein#add('tomtom/tcomment_vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/vimshell.vim')
-call dein#add('Shougo/vimfiler.vim')
-call dein#add('itchyny/lightline.vim')
-call dein#add('t9md/vim-textmanip')
-call dein#add('AndrewRadev/switch.vim')
-call dein#add('Shougo/unite.vim')
-call dein#add('ujihisa/unite-colorscheme')
-call dein#add('tomasr/molokai')
-call dein#add('scrooloose/nerdtree'  )
-call dein#add('Shougo/neocomplcache.vim')
-call dein#add('thinca/vim-quickrun')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('tyru/current-func-info.vim')
-call dein#add('mattn/multi-vim')
-call dein#add('terryma/vim-multiple-cursors')
-call dein#add('tyru/restart.vim')
-call dein#add('mbbill/undotree')
-call dein#add('leafcage/yankround.vim')
-call dein#add('troydm/easybuffer.vim')
-call dein#add('t9md/vim-quickhl')
-call dein#add('mattn/webapi-vim')
-call dein#add('mattn/excitetranslate-vim')
-call dein#add('vim-scripts/YankRing.vim')
-call dein#add('drillbits/nyan-modoki.vim')
-call dein#add('majutsushi/tagbar')
-call dein#add('itchyny/thumbnail.vim')
-call dein#add('koron/codic-vim')
-call dein#add('yuratomo/dotnet-complete')
-call dein#add('ujihisa/neco-look')
-call dein#add('tpope/vim-dispatch')
-call dein#add('osyo-manga/vim-anzu')
-call dein#end()
+NeoBundleFetch 'Shougo/neobundle.vim'
+" NeoBundle 'vobornik/vim-mql4'
+NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'Shougo/neocomplete.vim' 
+NeoBundle 'tomtom/tcomment_vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimshell.vim'
+NeoBundle 'Shougo/vimfiler.vim'
+NeoBundle 'itchyny/lightline.vim'
+NeoBundle 't9md/vim-textmanip'
+NeoBundle 'AndrewRadev/switch.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
+NeoBundle 'tomasr/molokai'
+NeoBundle 'scrooloose/nerdtree'  
+NeoBundle 'Shougo/neocomplcache.vim'
+NeoBundle 'thinca/vim-quickrun'
+NeoBundle "h1mesuke/unite-outline"
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tyru/current-func-info.vim'
+NeoBundle 'mattn/multi-vim'
+NeoBundle 'terryma/vim-multiple-cursors'
+NeoBundle 'tyru/restart.vim'
+NeoBundle 'mbbill/undotree'
+NeoBundle 'YankRing.vim'
+NeoBundle 'troydm/easybuffer.vim'
+NeoBundle 't9md/vim-quickhl'
+NeoBundle "Shougo/neosnippet.vim"
+NeoBundle "osyo-manga/vim-marching"
+NeoBundle "Shougo/neosnippet-snippets"
+NeoBundle "honza/vim-snippets"
+NeoBundle "rhysd/wandbox-vim"
+NeoBundle 'mattn/webapi-vim'                                
+NeoBundle 'mattn/excitetranslate-vim'
+NeoBundle 'vim-scripts/LanguageTool'
+NeoBundle 'drillbits/nyan-modoki.vim'
+NeoBundle 'majutsushi/tagbar'
+NeoBundle 'itchyny/thumbnail.vim'
+NeoBundle 'koron/codic-vim'
+NeoBundle 'yuratomo/dotnet-complete'
+NeoBundle 'ujihisa/neco-look'
+NeoBundle 'tpope/vim-dispatch'
+NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'gburca/vim-logcat'
+" NeoBundle 'thinca/vim-logcat'
+" NeoBundle 'tpope/vim-fugitive'
+call neobundle#end()
 
+
+" Installation check.
+NeoBundleCheck
+set runtimepath+=$VIM/plugins/quickrun
+set runtimepath+=$VIM/plugins/vimshell
+set runtimepath+=$VIM/plugins/vimproc
 " undotree.vim
 " [?]でヘルプ。,uでundo履歴
 " http://vimblog.com/blog/2012/09/02/undotree-dot-vim-display-your-undo-history-in-a-graph/
@@ -158,6 +165,7 @@ let g:switch_custom_definitions =
 			\   ['START', 'END'],
 			\   ['ON', 'OFF'],
 			\   ['OK', 'NG'],
+			\   ['YES', 'NO'],
 			\   ['VALID', 'INVALID'],
 			\   ['LOW', 'HIGH'],
 			\   ['ACT_L', 'ACT_H'],
@@ -196,7 +204,7 @@ let g:switch_custom_definitions =
 			\   ['public', 'private', 'protected'],
 			\   ['Send', 'Receive'],
 			\   ['+', '-'],
-			\   ['foo', 'bar', 'baz']
+			\   ['foo', 'bar', 'baz'],
 			\ ]
 " 下記vimrcをutf-8に変換時、2バイト文字がswitch出来なくなった為、保留させている
 " \   ['成功', '失敗'],
@@ -715,3 +723,71 @@ autocmd BufNewFile,BufReadPost *.mq[h4] setlocal filetype=mql4
 
 " TODOグレップ
 map to :vim TODO */**<CR>
+
+tnoremap <Esc> <C-w>
+
+"********************************
+" TERMINAL設定
+"********************************
+noremap tc :ter <CR>
+noremap tp :ter powershell<CR>
+noremap tu :ter ubuntu<CR>
+tnoremap <Esc> <C-w>
+tnoremap <C-p> "*
+" terminalのファイルタイプ設定
+function! s:bufnew()
+   " 幸いにも 'buftype' は設定されているのでそれを基準とする
+    if &buftype == "terminal" && &filetype == ""
+        set filetype=terminal
+    endif
+endfunction
+
+
+function! s:filetype()
+   " ここに :terminal のバッファ固有の設定を記述する
+endfunction
+
+
+augroup my-terminal
+    autocmd!
+   " BufNew の時点では 'buftype' が設定されていないので timer イベントでごまかすなど…
+    autocmd BufNew * call timer_start(0, { -> s:bufnew() })
+    autocmd FileType terminal call s:filetype()
+augroup END
+
+" プラグインが実際にインストールされるディレクトリ
+" let s:dein_dir = expand('~/.cache/dein')
+" " dein.vim 本体
+" let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
+"
+" " dein.vim がなければ github から落としてくる
+" if &runtimepath !~# '/dein.vim'
+"   if !isdirectory(s:dein_repo_dir)
+"     execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+"   endif
+"   execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
+" endif
+"
+" " 設定開始
+" if dein#load_state(s:dein_dir)
+"   call dein#begin(s:dein_dir)
+"
+"   " プラグインリストを収めた TOML ファイル
+"   " 予め TOML ファイル（後述）を用意しておく
+"   let g:rc_dir    = expand('~/.vim/rc')
+"   let s:toml      = g:rc_dir . '/dein.toml'
+"   let s:lazy_toml = g:rc_dir . '/dein_lazy.toml'
+"
+"   " TOML を読み込み、キャッシュしておく
+"   call dein#load_toml(s:toml,      {'lazy': 0})
+"   call dein#load_toml(s:lazy_toml, {'lazy': 1})
+"
+"   " 設定終了
+"   call dein#end()
+"   call dein#save_state()
+" endif
+"
+" " もし、未インストールものものがあったらインストール
+" if dein#check_install()
+"   call dein#install()
+" endif
